@@ -3,14 +3,16 @@ const http = require("http");
 const express = require('express');
 const app = express();
 
-const server = http.createServer((req, res) => {
+const expressConfig = require('./config/express');
 
-    res.writeHead(200, {'Content-Type': 'text/json'});
-    res.end('\n Hello World ! \n');
+expressConfig(app);
 
-}).listen(8060);
+const server = http.createServer(app);
 
-console.log('Server is running on port number- 8060');
+server.listen(3000);
+
+ console.log('Server is running on port number- 3000');
 
 module.exports = server;
+
 
