@@ -1,10 +1,12 @@
 
 const express = require('express');
 
-const users = require('./api/user');
+const user = require('./api/user');
+const address = require('./api/address');
 
 module.exports = (app) => {
-    app.use('/api/users', users);
+    app.use('/api/users', user);
+    app.use('/api/address', address);
     // All undefined asset or api routes should return a 404
     app.use((e, req, res, next) => {
         if (!next) return null;

@@ -5,7 +5,10 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --ignore node_modules/ -e js server/app"
+    "start": "nodemon --ignore node_modules/ -e js server/app",
+    "clear-db": "sequelize db:drop; sequelize db:create",
+    "migrate": "DEBUG=s.*  sequelize db:migrate;",
+    "seed": " DEBUG=s.*  sequelize db:seed:all"
   },
   "repository": {
     "type": "git",
@@ -18,8 +21,16 @@
   },
   "homepage": "https://github.com/vikasjson/nodejs_application#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
-    "express": "^4.16.3"
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "lodash": "^4.17.11",
+    "mysql2": "^1.6.1",
+    "save": "^2.3.2",
+    "sequelize": "^4.39.0",
+    "sequelize-cli": "^4.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.4"
